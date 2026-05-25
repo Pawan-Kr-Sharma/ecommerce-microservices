@@ -19,6 +19,7 @@ public class JwtUtil {
 	private final long expirationMs;
 	
 	public JwtUtil(@Value("${app.jwt.secret}") String secretKey, @Value("${app.jwt.expiration-ms}") long expiry) {
+		
 		this.key = Keys.hmacShaKeyFor(secretKey.getBytes());
 		this.expirationMs = expiry;
 	}
@@ -33,13 +34,20 @@ public class JwtUtil {
 		.claim("email", email)
 		.claim("role", role)
 		.issuedAt(new Date(now))
-		.expiration(new Date(expirationMs))
+		.expiration(new Date(now + expirationMs)) //
 		.signWith(key)
 		.compact();
 	}
 	
 	
 	public Jws<Claims> validateToken(String token){
+		
 		return Jwts.parser().verifyWith(key).build().parseSignedClaims(token);
+	}
+	
+	public Long getUserIdFromToken(String token) {
+		
+		Claims claims = validateToken(token).getBody();
+		return Long.valueOf(claims.getSubject());
 	}
 }
