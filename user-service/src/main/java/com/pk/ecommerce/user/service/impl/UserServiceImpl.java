@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
 	public UserResponseDto register(UserCreateRequestDto dto) {
 		log.info("Register user !!");
 		
-		if(userRepository.existByEmail(dto.getEmail())) {
+		if(userRepository.existsByEmail(dto.getEmail())) {
 			log.warn("User already exist with given email: {}",dto.getEmail());
 			throw new ResourceAlreadyExistsException("Email Already Registered");
 		}
