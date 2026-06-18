@@ -1,0 +1,15 @@
+razorpay:
+  key: r_z_ptest_xxx
+  secret: xxxxx
+  webhook-secret: xxxxxx
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
+
+

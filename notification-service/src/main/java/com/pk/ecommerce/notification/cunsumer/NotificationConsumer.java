@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import com.pk.ecommerce.notification.dto.NotificationEvent;
 import com.pk.ecommerce.notification.service.EmailService;
+import com.pk.ecommerce.notification.service.SmsService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -13,10 +14,18 @@ import lombok.RequiredArgsConstructor;
 public class NotificationConsumer {
 
 	private final EmailService emailService;
+	private final SmsService smsService;
 	
 	@KafkaListener(topics = "Notification-topic", groupId = "notification-group")
 	public void consume(NotificationEvent event) {
-		emailService.sendMail(event.getEmail(), event.getSubject(), event.getMessage());
+		
+		if("EMAIL".equals(event.getType())) {
+			emailService.sendMail(event.getEmail(), event.getSubject(), event.getMessage());
+		}
+		
+		if("SMS".equals(event.getType())) {
+			smsService.sendSms(event.getMobile(), event.getMessage());
+		}
 	}
 	
 	

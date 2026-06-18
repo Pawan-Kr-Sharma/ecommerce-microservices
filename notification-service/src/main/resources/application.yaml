@@ -27,3 +27,18 @@ spring:
           auth: true
           starttls:
             enable: true
+
+twilio:
+  acount-sid: 3a809101d9fd9
+  auth-token: b2880e41448666c
+  from-number: 989797648
+  
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
