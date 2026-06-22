@@ -1,8 +1,11 @@
 package com.pk.ecommerce.product.mapper;
 
+import org.springframework.stereotype.Component;
+
 import com.pk.ecommerce.product.dto.CategoryDto;
 import com.pk.ecommerce.product.entity.Category;
 
+@Component
 public class CategoryMapper {
 
 	public CategoryDto toDto(Category category) {

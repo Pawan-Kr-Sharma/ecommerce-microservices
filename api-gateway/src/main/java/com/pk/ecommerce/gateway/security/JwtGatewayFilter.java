@@ -40,7 +40,8 @@ public class JwtGatewayFilter implements GatewayFilter, Ordered{
 		}
 		
 		String authHeader = exchange.getRequest().getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
-		if(authHeader == null || authHeader.startsWith("Bearer ")) {
+		
+		if(authHeader == null || !authHeader.startsWith("Bearer ")) {
 			return unauthorized(exchange);
 		}
 		

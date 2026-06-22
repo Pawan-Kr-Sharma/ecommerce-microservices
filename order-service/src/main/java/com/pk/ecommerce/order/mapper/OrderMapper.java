@@ -1,9 +1,12 @@
 package com.pk.ecommerce.order.mapper;
 
+import org.springframework.stereotype.Component;
+
 import com.pk.ecommerce.order.dto.OrderRequest;
 import com.pk.ecommerce.order.dto.OrderResponse;
 import com.pk.ecommerce.order.entity.Order;
 
+@Component
 public class OrderMapper {
 
 	public Order toEntity(OrderRequest request) {

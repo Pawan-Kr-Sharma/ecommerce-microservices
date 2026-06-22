@@ -1,9 +1,12 @@
 package com.pk.ecommerce.product.mapper;
 
+import org.springframework.stereotype.Component;
+
 import com.pk.ecommerce.product.dto.ProductDto;
 import com.pk.ecommerce.product.entity.Category;
 import com.pk.ecommerce.product.entity.Product;
 
+@Component
 public class ProductMapper {
 
 	public ProductDto toDto(Product product) {
@@ -17,7 +20,7 @@ public class ProductMapper {
 				.quantity(product.getQuantity())
 				.brand(product.getBrand())
 				.imageUrl(product.getImageUrl())
-				.categoryId(product.getCategory().getId())
+				.categoryId(product.getCategory() != null ? product.getCategory().getId() : null)
 				.build();
 				
 	}

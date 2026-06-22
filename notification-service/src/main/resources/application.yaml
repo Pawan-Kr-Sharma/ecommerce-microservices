@@ -1,5 +1,5 @@
 server:
-  port: 8085
+  port: 8086
 
 spring:
   kafka:
@@ -19,7 +19,7 @@ spring:
     host: smtp.gmail.com
     port: 587
     username: devrajpk1992@gmail.com
-    password: 123456
+    password: dummy-password
 
     properties:
       mail:
@@ -29,9 +29,9 @@ spring:
             enable: true
 
 twilio:
-  acount-sid: 3a809101d9fd9
-  auth-token: b2880e41448666c
-  from-number: 989797648
+  account-sid: dummy-sid
+  auth-token: dummy-token
+  from-number: 254685974
   
 
 management:

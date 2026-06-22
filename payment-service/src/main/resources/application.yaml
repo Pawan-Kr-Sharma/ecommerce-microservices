@@ -1,8 +1,21 @@
 razorpay:
   key: r_z_ptest_xxx
   secret: xxxxx
-  webhook-secret: xxxxxx
 
+  webhook:
+    secret: xxxxxx
+
+Spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/payment_db
+    username: root
+    password: Pawan@123
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    
 management:
   tracing:
     sampling:

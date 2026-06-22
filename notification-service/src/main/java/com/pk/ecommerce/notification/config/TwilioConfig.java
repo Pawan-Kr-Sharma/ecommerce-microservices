@@ -10,7 +10,7 @@ import jakarta.annotation.PostConstruct;
 @Configuration
 public class TwilioConfig {
 
-	@Value("${twilio.account.sid}")
+	@Value("${twilio.account-sid}")
 	private String accountSid;
 	
 	@Value("${twilio.auth-token}")

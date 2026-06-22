@@ -8,6 +8,6 @@ import com.pk.ecommerce.product.entity.Category;
 
 public interface CategoryRepository extends JpaRepository<Category, Long>{
 
-	List<Category> findByParentID(Long parentId);
+	List<Category> findByParentId(Long parentId);
 	boolean existsByName(String name);
 }

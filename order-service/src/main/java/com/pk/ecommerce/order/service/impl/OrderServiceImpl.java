@@ -50,7 +50,7 @@ public class OrderServiceImpl implements OrderService {
 		event.setOrderId(orderId);
 		event.setSkuCode(request.getSkuCode());
 		event.setQuantity(request.getQuantity());
-		event.setEventType("ORDER-PLACED");
+		//event.setEventType("ORDER-PLACED");
 		event.setEventTime(LocalDateTime.now());
 		
 		orderEventProducer.senOrderEvent(event);

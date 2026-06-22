@@ -1,12 +1,12 @@
 package com.pk.ecommerce.inventory.mapper;
 
+import org.springframework.stereotype.Component;
+
 import com.pk.ecommerce.inventory.dto.InventoryRequest;
 import com.pk.ecommerce.inventory.dto.InventoryResponse;
 import com.pk.ecommerce.inventory.entity.Inventory;
 
-import lombok.Data;
-
-@Data
+@Component
 public class InventoryMapper {
 
 	public Inventory toEntity(InventoryRequest request) {
