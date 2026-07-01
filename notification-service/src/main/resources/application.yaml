@@ -2,13 +2,16 @@ server:
   port: 8086
 
 spring:
+  application:
+    name: notification-service
+
   kafka:
     bootstrap-servers: localhost:9092
 
     consumer:
       group-id: notification-group
       auto-offset-reset: earliest
-
+      
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
 
@@ -31,8 +34,17 @@ spring:
 twilio:
   account-sid: dummy-sid
   auth-token: dummy-token
-  from-number: 254685974
-  
+  from-number: "254685974"
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+  instance:
+    prefer-ip-address: true
 
 management:
   tracing:
